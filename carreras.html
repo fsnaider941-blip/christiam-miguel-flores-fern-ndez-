@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ITP - Carreras Tecnológicas</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- BOTÓN FLOTANTE MENÚ -->
+    <button class="btn-menu-flotante-izq"
+            onclick="toggleSidebar()">
+
+        ☰ <span>Menú</span>
+
+    </button>
+
+
+    <!-- MENÚ LATERAL -->
+    <aside id="sidebarMenu"
+           class="sidebar-izq">
+
+        <div class="sidebar-header">
+
+            <span class="sidebar-title">
+                ITP Pucusana
+            </span>
+
+            <span class="btn-cerrar-sidebar"
+                  onclick="toggleSidebar()">
+
+                &times;
+
+            </span>
+
+        </div>
+
+
+        <nav class="sidebar-links">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="carreras.html"
+               onclick="toggleSidebar()">
+
+                Carreras Tecnológicas
+
+            </a>
+
+            <a href="#"
+               onclick="toggleSidebar(); openModalForm();">
+
+                Inscríbete Ya
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- SOBRECAPA -->
+    <div id="overlaySidebar"
+         class="overlay-sidebar"
+         onclick="toggleSidebar()">
+    </div>
+
+
+    <!-- MAIN -->
+    <main class="container py-seccion">
+
+        <h1 class="titulo-pagina">
+            Carreras Tecnológicas e Innovación Digital
+        </h1>
+
+
+        <!-- CATÁLOGO -->
+        <div id="catalogo"
+             class="grid-carreras">
+
+
+            <!-- CARRERA 1 -->
+            <div class="card-carrera">
+
+                <span class="badge-verde">
+                    Alta Demanda
+                </span>
+
+                <h2>
+                    Desarrollo de Software con Inteligencia Artificial
+                </h2>
+
+                <p>
+                    Crea algoritmos de aprendizaje automático,
+                    redes neuronales, aplicaciones web interactivas
+                    e integra modelos de lenguaje generativo con
+                    Python y JavaScript.
+                </p>
+
+                <ul>
+
+                    <li>
+                        ✔ Machine Learning y Deep Learning
+                    </li>
+
+                    <li>
+                        ✔ Programación Full Stack y Cloud Computing
+                    </li>
+
+                    <li>
+                        ✔ Integración de API de IA Generativa
+                    </li>
+
+                </ul>
+
+                <button
+                    class="btn-morado"
+                    onclick="openModalForm()">
+
+                    Solicitar Información
+
+                </button>
+
+            </div>
+
+
+            <!-- CARRERA 2 -->
+            <div class="card-carrera ciberseguridad">
+
+                <span class="badge-verde">
+                    Especialidad Destacada
+                </span>
+
+                <h2>
+                    Ciberseguridad & Protección de Datos
+                </h2>
+
+                <p>
+                    Aprende a proteger infraestructuras críticas,
+                    auditar redes informáticas, prevenir ciberataques
+                    y realizar hacking ético en plataformas corporativas.
+                </p>
+
+                <ul>
+
+                    <li>
+                        ✔ Auditoría e Investigación Forense Digital
+                    </li>
+
+                    <li>
+                        ✔ Pentesting y Hacking Ético
+                    </li>
+
+                    <li>
+                        ✔ Seguridad en Servidores y Redes Nube
+                    </li>
+
+                </ul>
+
+                <button
+                    class="btn-morado"
+                    onclick="openModalForm()">
+
+                    Solicitar Información
+
+                </button>
+
+            </div>
+
+
+            <!-- CARRERA 3 -->
+            <div class="card-carrera">
+
+                <span class="badge-azul">
+                    Infraestructura
+                </span>
+
+                <h2>
+                    Ingeniería de Sistemas y Telecomunicaciones
+                </h2>
+
+                <p>
+                    Diseña, administra y mantiene la infraestructura
+                    informática de servidores, virtualización y
+                    telecomunicaciones en la nube.
+                </p>
+
+                <ul>
+
+                    <li>
+                        ✔ Administración de Servidores Linux / Windows
+                    </li>
+
+                    <li>
+                        ✔ Configuración de Enrutadores y Switches Cisco
+                    </li>
+
+                    <li>
+                        ✔ Virtualización y DevOps
+                    </li>
+
+                </ul>
+
+                <button
+                    class="btn-morado"
+                    onclick="openModalForm()">
+
+                    Solicitar Información
+
+                </button>
+
+            </div>
+
+
+            <!-- CARRERA 4 -->
+            <div class="card-carrera">
+
+                <span class="badge-morado">
+                    Gestión
+                </span>
+
+                <h2>
+                    Administración de Empresas Digitales
+                </h2>
+
+                <p>
+                    Lidera la transformación digital de negocios,
+                    gestiona e-commerce, finanzas digitales y
+                    estrategias tecnológicas corporativas.
+                </p>
+
+                <ul>
+
+                    <li>
+                        ✔ Comercio Electrónico y FinTech
+                    </li>
+
+                    <li>
+                        ✔ Gestión de Proyectos Ágiles (Scrum)
+                    </li>
+
+                    <li>
+                        ✔ Analítica de Negocios y Big Data
+                    </li>
+
+                </ul>
+
+                <button
+                    class="btn-morado"
+                    onclick="openModalForm()">
+
+                    Solicitar Información
+
+                </button>
+
+            </div>
+
+
+            <!-- CARRERA 5 -->
+            <div class="card-carrera">
+
+                <span class="badge-verde">
+                    Diseño & Web
+                </span>
+
+                <h2>
+                    Diseño UX/UI & Frontend Web Developer
+                </h2>
+
+                <p>
+                    Diseña interfaces digitales centradas en el usuario,
+                    prototipos interactivos en Figma y construcciones
+                    web responsivas de alto nivel.
+                </p>
+
+                <ul>
+
+                    <li>
+                        ✔ Maquetación Web con HTML5, CSS Grid y JS
+                    </li>
+
+                    <li>
+                        ✔ Prototipado en Figma y Wireframing
+                    </li>
+
+                    <li>
+                        ✔ Experiencia de Usuario (UX Research)
+                    </li>
+
+                </ul>
+
+                <button
+                    class="btn-morado"
+                    onclick="openModalForm()">
+
+                    Solicitar Información
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- MODAL DEL FORMULARIO -->
+    <div id="modalInscripcion"
+         class="modal-overlay">
+
+        <div class="modal-contenido">
+
+
+            <!-- BOTÓN X -->
+            <span class="btn-cerrar"
+                  onclick="closeModalForm()">
+
+                &times;
+
+            </span>
+
+
+            <!-- FORMULARIO -->
+            <div id="vistaFormulario">
+
+                <h2>
+                    Formulario de Inscripción ITP
+                </h2>
+
+                <p>
+                    Ingresa tus datos para registrar tu postulación académica.
+                </p>
+
+
+                <form id="formModal"
+                      onsubmit="submitForm(event)">
+
+
+                    <div class="grupo-input">
+
+                        <label for="nombres2">
+                            Nombres Completos:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombres2"
+                            required
+                            placeholder="Ej. Juan Pérez">
+
+                    </div>
+
+
+                    <div class="grupo-input">
+
+                        <label for="telefono2">
+                            Teléfono Celular:
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono2"
+                            required
+                            placeholder="987654321">
+
+                    </div>
+
+
+                    <div class="grupo-input">
+
+                        <label for="carreraSelect2">
+                            Carrera de Interés:
+                        </label>
+
+                        <select id="carreraSelect2"
+                                required>
+
+                            <option
+                                value=""
+                                disabled
+                                selected>
+
+                                Selecciona una opción...
+
+                            </option>
+
+                            <option>
+                                Desarrollo de Software e IA
+                            </option>
+
+                            <option>
+                                Ciberseguridad y Protección de Datos
+                            </option>
+
+                            <option>
+                                Ingeniería de Sistemas y Redes
+                            </option>
+
+                            <option>
+                                Administración de Empresas Digitales
+                            </option>
+
+                            <option>
+                                Diseño UX/UI y Frontend Developer
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-enviar-modal">
+
+                        Enviar Inscripción
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- MENSAJE DE ÉXITO -->
+            <div id="vistaExito"
+                 class="cuadro-exito-simple d-none">
+
+                <p class="mensaje-exito-texto">
+                    Solicitud enviada correctamente
+                </p>
+
+                <button
+                    type="button"
+                    class="btn-cerrar-exito"
+                    onclick="closeModalForm()">
+
+                    Cerrar
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer class="footer-itp">
+
+        <p>
+            &copy; 2026 Instituto Tecnológico de Pucusana (ITP).
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // MENÚ LATERAL
+        function toggleSidebar() {
+
+            document
+                .getElementById('sidebarMenu')
+                .classList
+                .toggle('active');
+
+            document
+                .getElementById('overlaySidebar')
+                .classList
+                .toggle('active');
+
+        }
+
+
+        // ABRIR FORMULARIO
+        function openModalForm() {
+
+            document
+                .getElementById('vistaFormulario')
+                .style
+                .display = 'block';
+
+            document
+                .getElementById('vistaExito')
+                .classList
+                .add('d-none');
+
+            document
+                .getElementById('modalInscripcion')
+                .style
+                .display = 'flex';
+
+        }
+
+
+        // CERRAR MODAL
+        function closeModalForm() {
+
+            document
+                .getElementById('modalInscripcion')
+                .style
+                .display = 'none';
+
+        }
+
+
+        // ENVIAR FORMULARIO
+        function submitForm(e) {
+
+            e.preventDefault();
+
+            document
+                .getElementById('vistaFormulario')
+                .style
+                .display = 'none';
+
+            document
+                .getElementById('vistaExito')
+                .classList
+                .remove('d-none');
+
+        }
+
+    </script>
+
+</body>
+</html>

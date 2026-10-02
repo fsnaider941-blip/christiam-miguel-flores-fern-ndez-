@@ -1,0 +1,487 @@
+/* RESET GENERAL Y AJUSTES DE CAJA */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f4f9f9;
+    color: #2d3436;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* PALETA DE COLORES Y VARIABLES GLOBALES */
+:root {
+    --azul-mar: #0077b6;
+    --azul-playa: #00b4d8;
+    --morado-suave: #6c5ce7;
+    --verde-fresco: #00b894;
+    --negro-suave: #1e272e;
+}
+
+/* CONTENEDOR ADAPTATIVO */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.py-seccion {
+    padding: clamp(2rem, 5vw, 4rem) 0;
+}
+
+/* OCULTAR ELEMENTOS */
+.d-none {
+    display: none !important;
+}
+
+/* 1. BOTÓN FLOTANTE MENÚ A LA IZQUIERDA */
+.btn-menu-flotante-izq {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: var(--azul-mar);
+    color: white;
+    border: 2px solid var(--verde-fresco);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-menu-flotante-izq:hover {
+    transform: scale(1.05);
+    background-color: #005f92;
+}
+
+/* 2. MENÚ LATERAL */
+.sidebar-izq {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: min(300px, 85vw);
+    height: 100vh;
+    background-color: var(--negro-suave);
+    color: white;
+    z-index: 1300;
+    transition: left 0.3s ease;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-izq.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--azul-playa);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--verde-fresco);
+}
+
+.btn-cerrar-sidebar {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #aaa;
+    line-height: 1;
+}
+
+.btn-cerrar-sidebar:hover {
+    color: white;
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.sidebar-links a:hover {
+    background-color: var(--azul-mar);
+}
+
+/* SOBRECAPA OSCURA */
+.overlay-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1250;
+    display: none;
+}
+
+.overlay-sidebar.active {
+    display: block;
+}
+
+/* 3. HERO / BANNER PRINCIPAL */
+.hero-banner {
+    background:
+        linear-gradient(
+            rgba(0, 119, 182, 0.75),
+            rgba(108, 92, 231, 0.7)
+        ),
+        url('salon_computadoras.jpg')
+        no-repeat center center/cover;
+
+    min-height: 75vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    color: white;
+
+    padding: 2rem 1rem;
+}
+
+.hero-contenido {
+    width: 100%;
+    max-width: 800px;
+}
+
+.badge-itp {
+    background-color: var(--verde-fresco);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.hero-contenido h1 {
+    font-size: clamp(1.8rem, 4vw + 1rem, 3.2rem);
+    margin: 1rem 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-contenido p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    max-width: 650px;
+    margin: 0 auto 2rem;
+}
+
+.btn-hero {
+    background-color: var(--morado-suave);
+    color: white;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    background-color: #5b4bc4;
+}
+
+/* 4. SECCIÓN INFORMATIVA */
+.seccion-info {
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+    text-align: center;
+}
+
+.seccion-info h2 {
+    color: var(--azul-mar);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 1rem;
+}
+
+.seccion-info p {
+    color: #555;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 5. CATÁLOGO DE CARRERAS */
+.titulo-pagina {
+    text-align: center;
+    color: var(--azul-mar);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.grid-carreras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1.5rem;
+}
+
+.card-carrera {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--azul-playa);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-carrera.ciberseguridad {
+    border-top: 5px solid var(--verde-fresco);
+}
+
+.badge-verde {
+    background-color: var(--verde-fresco);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.badge-azul {
+    background-color: var(--azul-mar);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.badge-morado {
+    background-color: var(--morado-suave);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    width: fit-content;
+    margin-bottom: 10px;
+}
+
+.card-carrera h2 {
+    font-size: 1.25rem;
+    color: var(--negro-suave);
+    margin-bottom: 10px;
+}
+
+.card-carrera ul {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.card-carrera li {
+    font-size: 0.9rem;
+    color: #555;
+    padding: 4px 0;
+}
+
+.btn-morado {
+    background-color: var(--morado-suave);
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* 6. FORMULARIO MODAL */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 1rem;
+}
+
+.modal-contenido {
+    background: white;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.btn-cerrar:hover {
+    color: #333;
+}
+
+.grupo-input {
+    margin-bottom: 1rem;
+}
+
+.grupo-input label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.grupo-input input,
+.grupo-input select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.grupo-input input:focus,
+.grupo-input select:focus {
+    border-color: var(--azul-mar);
+    box-shadow: 0 0 0 2px rgba(0, 119, 182, 0.1);
+}
+
+.btn-enviar-modal {
+    width: 100%;
+    background-color: var(--verde-fresco);
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn-enviar-modal:hover {
+    background-color: #009f80;
+    transform: translateY(-1px);
+}
+
+/* 7. MENSAJE DE ÉXITO */
+.cuadro-exito-simple {
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.mensaje-exito-texto {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    font-weight: bold;
+    color: var(--azul-mar);
+    margin: 0;
+}
+
+/* BOTÓN PARA CERRAR EL MENSAJE DE ÉXITO */
+.btn-cerrar-exito {
+    margin-top: 1.2rem;
+    padding: 0.65rem 1.5rem;
+    background-color: var(--azul-mar);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cerrar-exito:hover {
+    background-color: #005f92;
+}
+
+/* 8. FOOTER */
+.footer-itp {
+    background-color: var(--negro-suave);
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* 9. RESPONSIVE */
+@media (max-width: 480px) {
+
+    .btn-menu-flotante-izq {
+        top: 15px;
+        left: 15px;
+        padding: 0.5rem 0.9rem;
+    }
+
+    .hero-banner {
+        min-height: 80vh;
+        padding-top: 4rem;
+    }
+
+    .card-carrera {
+        padding: 1.2rem;
+    }
+
+    .modal-contenido {
+        padding: 1.4rem 1.2rem;
+    }
+
+    .modal-contenido h2 {
+        padding-right: 1.5rem;
+    }
+}

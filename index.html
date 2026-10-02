@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITP - Instituto Tecnológico de Pucusana</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- BOTÓN FLOTANTE MENÚ -->
+    <button class="btn-menu-flotante-izq" onclick="toggleSidebar()">
+        ☰ <span>Menú</span>
+    </button>
+
+    <!-- MENÚ LATERAL -->
+    <aside id="sidebarMenu" class="sidebar-izq">
+        <div class="sidebar-header">
+            <span class="sidebar-title">ITP Pucusana</span>
+            <span class="btn-cerrar-sidebar" onclick="toggleSidebar()">&times;</span>
+        </div>
+
+        <nav class="sidebar-links">
+            <a href="index.html" onclick="toggleSidebar()">Inicio</a>
+            <a href="carreras.html">Carreras Tecnológicas</a>
+            <a href="#" onclick="toggleSidebar(); openModalForm();">
+                Inscríbete Ya
+            </a>
+        </nav>
+    </aside>
+
+    <!-- SOBRECAPA -->
+    <div id="overlaySidebar"
+         class="overlay-sidebar"
+         onclick="toggleSidebar()">
+    </div>
+
+    <!-- MAIN -->
+    <main>
+
+        <!-- HERO -->
+        <section class="hero-banner">
+
+            <div class="hero-contenido">
+
+                <span class="badge-itp">
+                    Pucusana - 2026
+                </span>
+
+                <h1>
+                    Bienvenido a la página oficial del ITP
+                </h1>
+
+                <p>
+                    Líderes en formación tecnológica superior,
+                    innovación y desarrollo para el distrito de Pucusana.
+                </p>
+
+                <a href="carreras.html" class="btn-hero">
+                    Comienza Ya
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- INFORMACIÓN -->
+        <section class="seccion-info container">
+
+            <h2>
+                Sobre Nuestra Institución
+            </h2>
+
+            <p>
+                El Instituto Tecnológico de Pucusana (ITP) es el centro
+                educativo líder en tecnología y desarrollo digital del
+                litoral sur. Formamos especialistas en software,
+                inteligencia artificial, ciberseguridad e infraestructura
+                tecnológica con acceso a laboratorios de cómputo de
+                última generación.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+    <div id="modalInscripcion" class="modal-overlay">
+
+        <div class="modal-contenido">
+
+            <span class="btn-cerrar"
+                  onclick="closeModalForm()">
+                &times;
+            </span>
+
+            <!-- FORMULARIO -->
+            <div id="vistaFormulario">
+
+                <h2>
+                    Formulario de Inscripción ITP
+                </h2>
+
+                <p>
+                    Ingresa tus datos para registrar tu postulación académica.
+                </p>
+
+                <form id="formModal"
+                      onsubmit="submitForm(event)">
+
+                    <div class="grupo-input">
+
+                        <label for="nombres">
+                            Nombres Completos:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombres"
+                            required
+                            placeholder="Ej. Juan Pérez"
+                        >
+
+                    </div>
+
+                    <div class="grupo-input">
+
+                        <label for="telefono">
+                            Teléfono Celular:
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            required
+                            placeholder="987654321"
+                        >
+
+                    </div>
+
+                    <div class="grupo-input">
+
+                        <label for="carreraSelect">
+                            Carrera de Interés:
+                        </label>
+
+                        <select id="carreraSelect" required>
+
+                            <option value=""
+                                    disabled
+                                    selected>
+                                Selecciona una opción...
+                            </option>
+
+                            <option>
+                                Desarrollo de Software e IA
+                            </option>
+
+                            <option>
+                                Ciberseguridad y Protección de Datos
+                            </option>
+
+                            <option>
+                                Ingeniería de Sistemas y Redes
+                            </option>
+
+                            <option>
+                                Administración de Empresas Digitales
+                            </option>
+
+                            <option>
+                                Diseño UX/UI y Frontend Developer
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn-enviar-modal">
+                        Enviar Inscripción
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- MENSAJE DE ÉXITO -->
+            <div id="vistaExito"
+                 class="cuadro-exito-simple d-none">
+
+                <p class="mensaje-exito-texto">
+                    Solicitud enviada correctamente
+                </p>
+
+                <button
+                    type="button"
+                    class="btn-cerrar-exito"
+                    onclick="closeModalForm()">
+                    Cerrar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-itp">
+
+        <p>
+            &copy; 2026 Instituto Tecnológico de Pucusana (ITP).
+            Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        // MENÚ LATERAL
+        function toggleSidebar() {
+
+            document
+                .getElementById('sidebarMenu')
+                .classList
+                .toggle('active');
+
+            document
+                .getElementById('overlaySidebar')
+                .classList
+                .toggle('active');
+        }
+
+
+        // ABRIR FORMULARIO
+        function openModalForm() {
+
+            document
+                .getElementById('vistaFormulario')
+                .style
+                .display = 'block';
+
+            document
+                .getElementById('vistaExito')
+                .classList
+                .add('d-none');
+
+            document
+                .getElementById('modalInscripcion')
+                .style
+                .display = 'flex';
+        }
+
+
+        // CERRAR MODAL
+        function closeModalForm() {
+
+            document
+                .getElementById('modalInscripcion')
+                .style
+                .display = 'none';
+        }
+
+
+        // ENVIAR FORMULARIO
+        function submitForm(e) {
+
+            e.preventDefault();
+
+            document
+                .getElementById('vistaFormulario')
+                .style
+                .display = 'none';
+
+            document
+                .getElementById('vistaExito')
+                .classList
+                .remove('d-none');
+        }
+
+    </script>
+
+</body>
+</html>
